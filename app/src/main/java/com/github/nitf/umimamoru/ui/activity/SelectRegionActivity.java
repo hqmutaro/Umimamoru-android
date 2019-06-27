@@ -1,7 +1,9 @@
 package com.github.nitf.umimamoru.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.github.nitf.umimamoru.ui.utils.ActivityRepsitory;
 import com.github.nitf.umimamoru.ui.utils.CustomAdapter;
 import com.github.nitf.umimamoru.R;
 
@@ -20,7 +22,6 @@ import java.util.List;
 public class SelectRegionActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, SearchView.OnQueryTextListener {
 
     private ListView listView;
-    private CustomAdapter adapter;
 
     private static final String[] regions = {
             "foo",
@@ -30,6 +31,8 @@ public class SelectRegionActivity extends AppCompatActivity implements AdapterVi
             "hogehoge"
     };
 
+    static final String ACTIVITY_NAME = "SelectRegion";
+
     public SelectRegionActivity(){
     }
 
@@ -37,9 +40,10 @@ public class SelectRegionActivity extends AppCompatActivity implements AdapterVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_region);
+        ActivityRepsitory.setPreviousActivity("Main");
 
         listView = (ListView) findViewById(R.id.listView);
-        this.adapter = new CustomAdapter(getApplicationContext(), R.layout.row_item, regions);
+        CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.row_item, regions);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
         listView.setTextFilterEnabled(true);
@@ -51,7 +55,10 @@ public class SelectRegionActivity extends AppCompatActivity implements AdapterVi
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        Toast.makeText( SelectRegionActivity.this, regions[position] + "を押したよ", Toast.LENGTH_SHORT).show();
+        ActivityRepsitory.setPreviousActivity("SelectRegion");
+        Intent intent = new Intent(this, InfoDisplayActivity.class);
+        startActivityForResult(intent, 0);
+        // regions[position] is Region Data.
     }
 
     @Override
