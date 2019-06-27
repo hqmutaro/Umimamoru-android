@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.nitf.umimamoru.R;
+import com.github.nitf.umimamoru.ui.utils.ActivityRepsitory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
