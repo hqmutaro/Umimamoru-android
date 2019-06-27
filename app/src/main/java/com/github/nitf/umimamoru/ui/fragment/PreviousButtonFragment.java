@@ -18,6 +18,7 @@ import com.github.nitf.umimamoru.R;
 import com.github.nitf.umimamoru.ui.activity.InfoDisplayActivity;
 import com.github.nitf.umimamoru.ui.activity.MainActivity;
 import com.github.nitf.umimamoru.ui.activity.SelectRegionActivity;
+import com.github.nitf.umimamoru.ui.utils.ActivityRepsitory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +47,7 @@ public class PreviousButtonFragment extends Fragment {
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent previousActivity = new Intent(PreviousButtonFragment.this.getActivity(), SelectRegionActivity.class);
+                Intent previousActivity = new Intent(PreviousButtonFragment.this.getActivity(), ActivityRepsitory.getPreviousActivityClass());
                 startActivity(previousActivity);
             }
         });
