@@ -19,11 +19,11 @@ public class ActivityRepsitory {
 
     private static String nowActivity;
 
-    public static void setNowActivity(String nowActivity) {
+    public static void setPreviousActivity(String nowActivity) {
         ActivityRepsitory.nowActivity = nowActivity;
     }
 
-    public static Class getNowActivityClass() {
+    public static Class getPreviousActivityClass() {
         return getActivity(nowActivity);
     }
 
