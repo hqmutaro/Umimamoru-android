@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Umimamoru</string>
+    <string name="title">うみまもる</string>
+    <string name="selectButton">地域を選択する</string>
+    <string name="title_activity_select_region">SelectRegionActivity</string>
+    <string name="title_activity_row_item">RowItem</string>
+    <string name="select">Select</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_info_display">InfoDisplayActivity</string>
+    <string name="previousText">別のビーチに変更する</string>
+</resources>
