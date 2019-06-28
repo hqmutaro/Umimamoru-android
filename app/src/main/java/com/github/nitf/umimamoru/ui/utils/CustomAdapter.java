@@ -41,7 +41,8 @@ public class CustomAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        holder.selectButton.setText(regions[position]);
+        String beachName = regions[position] + "ビーチ";
+        holder.selectButton.setText(beachName);
         holder.selectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
