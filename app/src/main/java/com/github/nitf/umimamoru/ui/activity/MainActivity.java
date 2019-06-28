@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.nitf.umimamoru.R;
+import com.github.nitf.umimamoru.Umimamoru;
 import com.github.nitf.umimamoru.ui.utils.ActivityRepsitory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Umimamoru main = new Umimamoru();
+        main.start();
 
         Button button = findViewById(R.id.selectButton);
         button.setOnClickListener(this);
