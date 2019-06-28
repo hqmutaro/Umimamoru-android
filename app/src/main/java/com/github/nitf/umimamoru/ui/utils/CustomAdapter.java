@@ -15,16 +15,16 @@ public class CustomAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private int resourceId;
-    private String[] items;
+    private String[] regions;
 
     static class ViewHolder {
         Button selectButton;
     }
 
-    public CustomAdapter(Context context, int resourceId, String[] items) {
+    public CustomAdapter(Context context, int resourceId, String[] regions) {
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.resourceId = resourceId;
-        this.items = items;
+        this.regions = regions;
     }
 
     @Override
@@ -41,6 +41,7 @@ public class CustomAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
+        holder.selectButton.setText(regions[position]);
         holder.selectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +54,7 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return items.length;
+        return regions.length;
     }
 
     @Override
