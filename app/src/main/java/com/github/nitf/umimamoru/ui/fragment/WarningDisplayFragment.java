@@ -17,8 +17,7 @@ public class WarningDisplayFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         boolean isOccurRipCurrent = true;
-        int resource;
-        resource = (isOccurRipCurrent) ? R.layout.fragment_warning_display : R.layout.fragment_all_clear_display;
+        int resource = (isOccurRipCurrent) ? R.layout.fragment_warning_display : R.layout.fragment_all_clear_display;
         return inflater.inflate(resource, container, false);
     }
 
