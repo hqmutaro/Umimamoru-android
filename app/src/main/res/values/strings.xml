@@ -11,4 +11,7 @@
     <string name="title_activity_info_display">InfoDisplayActivity</string>
     <string name="previousText">別のビーチに変更する</string>
     <string name="arrow">←</string>
+    <string name="occurPlaceText">離岸流が発生している場所</string>
+    <string name="waveStatusText">波のようす</string>
+    <string name="search_menu_search_view">test</string>
 </resources>
