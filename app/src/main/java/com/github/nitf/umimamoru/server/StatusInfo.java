@@ -4,10 +4,14 @@ import androidx.annotation.Nullable;
 
 public class StatusInfo {
 
-    private String beach;
+    private String region;
 
-    public StatusInfo(String beach) {
-        this.beach = beach;
+    public StatusInfo(String region) {
+        this.region = region;
+    }
+
+    public String getBeachName() {
+        return "";
     }
 
     @Nullable
