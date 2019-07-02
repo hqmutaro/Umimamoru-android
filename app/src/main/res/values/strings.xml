@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Umimamoru</string>
+    <string name="app_name">うみまもる</string>
     <string name="title">うみまもる</string>
     <string name="selectButton">地域を選択する</string>
     <string name="title_activity_select_region">SelectRegionActivity</string>
