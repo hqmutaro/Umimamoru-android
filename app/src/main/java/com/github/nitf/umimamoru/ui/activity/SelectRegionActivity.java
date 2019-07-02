@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -25,10 +24,6 @@ public class SelectRegionActivity extends AppCompatActivity implements AdapterVi
     private ListView listView;
 
     private static String[] regions;
-
-    static class ViewHolder {
-        Button selectButton;
-    }
 
     public SelectRegionActivity() {
         SelectRegionActivity.regions = new String[]{
@@ -47,12 +42,12 @@ public class SelectRegionActivity extends AppCompatActivity implements AdapterVi
         ActivityRepsitory.setPreviousActivity("Main");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regions);
-        listView = (ListView) findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(this);
         listView.setTextFilterEnabled(true);
 
-        SearchView searchView = (SearchView) findViewById(R.id.searchView);
+        SearchView searchView = findViewById(R.id.searchView);
         searchView.setIconifiedByDefault(false);
         searchView.setOnQueryTextListener(this);
         searchView.setSubmitButtonEnabled(false);
@@ -63,8 +58,8 @@ public class SelectRegionActivity extends AppCompatActivity implements AdapterVi
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         ActivityRepsitory.setPreviousActivity("SelectRegion");
         Intent intent = new Intent(this, InfoDisplayActivity.class);
+        intent.putExtra("RegionData", regions[position]);
         startActivityForResult(intent, 0);
-        // regions[position] is Region Data.
     }
 
     @Override
@@ -72,7 +67,7 @@ public class SelectRegionActivity extends AppCompatActivity implements AdapterVi
         if (TextUtils.isEmpty(queryText)) {
             listView.clearTextFilter();
         } else {
-            listView.setFilterText(queryText.toString());
+            listView.setFilterText(queryText);
         }
         return true;
     }
