@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.github.nitf.umimamoru.server.StatusInfo;
+import com.github.nitf.umimamoru.ui.adapter.RegionListAdapter;
+import com.github.nitf.umimamoru.ui.adapter.item.Region;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -17,8 +19,11 @@ import android.widget.TextView;
 
 import com.github.nitf.umimamoru.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class InfoDisplayActivity extends AppCompatActivity {
@@ -73,25 +78,31 @@ public class InfoDisplayActivity extends AppCompatActivity {
         TextView regionView = (TextView) findViewById(R.id.regionView);
         regionView.setText(region_debug);
 
-        ArrayAdapter<String> occurAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, occurPlaces);
+        ArrayAdapter<String> occurAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, occurPlaces) {
+            @Override
+            public boolean isEnabled(int position) {
+                return false;
+            }
+        };
 
         ListView occurListView = findViewById(R.id.occurListView);
         occurListView.setAdapter(occurAdapter);
 
-        String[] poles = new String[polesMap.size()];
-        int i = 0;
-        for (Map.Entry<String, Map<String, Integer>> poleEntry : polesMap.entrySet()) {
-            poles[i] = poleEntry.getKey() + "\n"
+        ListView poleListView = (ListView) findViewById(R.id.poleListView);
+        List<Region> data = new ArrayList<Region>();
+        RegionListAdapter regionListAdapter = new RegionListAdapter(this, 0, data);
+        poleListView.setAdapter(regionListAdapter);
+
+        Iterator<Map.Entry<String, Map<String, Integer>>> poleItr = polesMap.entrySet().iterator();
+        String info;
+        while (poleItr.hasNext()) {
+            Map.Entry<String, Map<String, Integer>> poleEntry = poleItr.next();
+            info = poleEntry.getKey() + "\n"
                     + "波の速さ " + poleEntry.getValue().get("wave.speed").toString() + "\n"
                     + "今月の離岸流発生回数: " + poleEntry.getValue().get("count.occur").toString();
-            i++;
-        } // TODO: Iteratorを使う
-
-        // 今はListViewで実装する
-        // 後々仕様変更を行う
-        ArrayAdapter<String> poleAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, poles);
-
-        ListView poleListView = findViewById(R.id.poleListView);
-        poleListView.setAdapter(poleAdapter);
+            Region region = new Region();
+            region.setData(info);
+            data.add(region);
+        }
     }
 }
