@@ -11,9 +11,9 @@
         android:id="@+id/previousText"
         android:layout_width="215dp"
         android:layout_height="34dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/previousText"
         android:textSize="21sp"
         app:layout_constraintBottom_toTopOf="@+id/regionView"
@@ -22,8 +22,8 @@
     <fragment
         android:id="@+id/previousButtonFragment"
         android:name="com.github.nitf.umimamoru.ui.fragment.PreviousButtonFragment"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="73dp"
+        android:layout_height="71dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.428" />
 
     <TextView
         android:id="@+id/regionView"
@@ -67,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.239" />
+        app:layout_constraintVertical_bias="0.281" />
 
     <TextView
         android:id="@+id/occurPlaceView"
@@ -85,7 +85,7 @@
         app:layout_constraintHorizontal_bias="0.336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
+        app:layout_constraintVertical_bias="0.59" />
 
     <TextView
         android:id="@+id/waveStatusView"
@@ -104,7 +104,7 @@
         app:layout_constraintHorizontal_bias="0.336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
+        app:layout_constraintVertical_bias="0.779" />
 
     <ListView
         android:id="@+id/occurListView"
@@ -118,10 +118,10 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
+        app:layout_constraintVertical_bias="0.696" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -140,8 +140,8 @@
 
     <ListView
         android:id="@+id/poleListView"
-        android:layout_width="395dp"
-        android:layout_height="159dp"
+        android:layout_width="397dp"
+        android:layout_height="108dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
